@@ -1,0 +1,1124 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={BCB546\_Assignment},
+  pdfauthor={Shirin Parvin},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{BCB546\_Assignment}
+\author{Shirin Parvin}
+\date{2025-03-19}
+
+\begin{document}
+\maketitle
+
+\subsection{R
+Assignment\_BCB546\_Spring2025}\label{r-assignment_bcb546_spring2025}
+
+\subsubsection{Submitted by Shirin
+Parvin}\label{submitted-by-shirin-parvin}
+
+\subsection{Part I}\label{part-i}
+
+\subsubsection{\texorpdfstring{\emph{Data
+Inspection}}{Data Inspection}}\label{data-inspection}
+
+There are two data files given to us
+\texttt{fang\_et\_al\_genotypes.txt} and \texttt{snp\_position.txt}. For
+all the data manipulation necessary, we first call the\texttt{tidyverse}
+library.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Calling the libraries needed}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## -- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+## v dplyr     1.1.4     v readr     2.1.5
+## v forcats   1.0.0     v stringr   1.5.1
+## v ggplot2   3.5.1     v tibble    3.2.1
+## v lubridate 1.9.4     v tidyr     1.3.1
+## v purrr     1.0.4     
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+## i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+\end{verbatim}
+
+Then, we read the data files into our system and inspect its content.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Loading the data files in R as dataframes, and inspecting their content such as number of rows, columns column names etc}
+
+\NormalTok{genotype.df }\OtherTok{\textless{}{-}} \FunctionTok{read.table}\NormalTok{(}\StringTok{"fang\_et\_al\_genotypes.txt"}\NormalTok{, }\AttributeTok{sep =} \StringTok{"}\SpecialCharTok{\textbackslash{}t}\StringTok{"}\NormalTok{, }\AttributeTok{header =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{nrow}\NormalTok{(genotype.df)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2782
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ncol}\NormalTok{(genotype.df)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 986
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str}\NormalTok{(genotype.df)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'data.frame':    2782 obs. of  986 variables:
+##  $ Sample_ID     : chr  "SL-15" "SL-16" "SL-11" "SL-12" ...
+##  $ JG_OTU        : chr  "T-aust-1" "T-aust-2" "T-brav-1" "T-brav-2" ...
+##  $ Group         : chr  "TRIPS" "TRIPS" "TRIPS" "TRIPS" ...
+##  $ abph1.20      : chr  "?/?" "?/?" "?/?" "?/?" ...
+##  $ abph1.22      : chr  "?/?" "?/?" "?/?" "?/?" ...
+##  $ ae1.3         : chr  "T/T" "T/T" "T/T" "T/T" ...
+##  $ ae1.4         : chr  "G/G" "?/?" "G/G" "G/G" ...
+##  $ ae1.5         : chr  "T/T" "T/T" "T/T" "T/T" ...
+##  $ an1.4         : chr  "C/C" "C/C" "?/?" "C/C" ...
+##  $ ba1.6         : chr  "?/?" "A/G" "G/G" "G/G" ...
+##  $ ba1.9         : chr  "G/G" "G/G" "G/G" "G/G" ...
+##  $ bt2.5         : chr  "?/?" "?/?" "C/C" "C/C" ...
+##  $ bt2.7         : chr  "A/A" "A/A" "A/A" "A/A" ...
+##  $ bt2.8         : chr  "?/?" "?/?" "?/?" "?/?" ...
+##  $ Fea2.1        : chr  "C/C" "C/C" "?/?" "?/?" ...
+##  $ Fea2.5        : chr  "A/A" "A/A" "A/A" "A/A" ...
+##  $ id1.3         : chr  "T/T" "T/T" "T/T" "T/T" ...
+##  $ lg2.11        : chr  "C/C" "C/C" "C/C" "C/C" ...
+##  $ lg2.2         : chr  "A/A" "A/A" "A/A" "A/A" ...
+##  $ pbf1.1        : chr  "?/?" "T/T" "T/T" "T/T" ...
+##  $ pbf1.2        : chr  "?/?" "?/?" "?/?" "?/?" ...
+##  $ pbf1.3        : chr  "?/?" "?/?" "?/?" "?/?" ...
+##  $ pbf1.5        : chr  "?/?" "?/?" "A/A" "A/A" ...
+##  $ pbf1.6        : chr  "?/?" "?/?" "?/?" "?/?" ...
+##  $ pbf1.7        : chr  "C/C" "C/C" "C/C" "C/C" ...
+##  $ pbf1.8        : chr  "C/C" "C/C" "C/C" "C/C" ...
+##  $ PZA00003.11   : chr  "?/?" "?/?" "C/C" "?/?" ...
+##  $ PZA00004.2    : chr  "T/T" "T/T" "?/?" "T/T" ...
+##  $ PZA00005.8    : chr  "G/G" "G/G" "G/G" "G/G" ...
+##  $ PZA00005.9    : chr  "C/C" "C/C" "C/C" "C/C" ...
+##  $ PZA00006.13   : chr  "A/A" "A/A" "A/A" "A/A" ...
+##  $ PZA00006.14   : chr  "?/?" "G/G" "G/G" "G/G" ...
+##  $ PZA00008.1    : chr  "C/C" "C/C" "C/C" "C/C" ...
+##  $ PZA00010.5    : chr  "C/C" "C/C" "C/C" "C/C" ...
+##  $ PZA00013.10   : chr  "A/A" "A/A" "A/A" "A/A" ...
+##  $ PZA00013.11   : chr  "C/C" "C/C" "C/T" "C/T" ...
+##  $ PZA00013.9    : chr  "T/T" "T/T" "T/T" "T/T" ...
+##  $ PZA00015.4    : chr  "?/?" "?/?" "?/?" "?/?" ...
+##  $ PZA00017.1    : chr  "G/G" "G/G" "G/G" "G/G" ...
+##  $ PZA00018.5    : chr  "C/C" "C/C" "C/C" "C/C" ...
+##  $ PZA00029.11   : chr  "C/C" "C/C" "C/C" "C/C" ...
+##  $ PZA00029.12   : chr  "T/T" "T/T" "T/T" "T/T" ...
+##  $ PZA00030.11   : chr  "?/?" "?/?" "?/?" "?/?" ...
+##  $ PZA00031.5    : chr  "C/C" "C/C" "C/C" "C/C" ...
+##  $ PZA00041.3    : chr  "?/?" "?/?" "?/?" "?/?" ...
+##  $ PZA00042.2    : chr  "?/?" "T/T" "?/?" "?/?" ...
+##  $ PZA00042.5    : chr  "C/C" "C/C" "C/C" "C/C" ...
+##  $ PZA00043.7    : chr  "T/T" "T/T" "T/T" "T/T" ...
+##  $ PZA00045.1    : chr  "G/G" "G/G" "G/G" "G/G" ...
+##  $ PZA00047.2    : chr  "C/C" "C/C" "C/C" "C/C" ...
+##  $ PZA00049.12   : chr  "?/?" "?/?" "T/T" "T/T" ...
+##  $ PZA00050.9    : chr  "A/A" "A/A" "?/?" "?/?" ...
+##  $ PZA00051.2    : chr  "A/A" "A/A" "A/A" "A/A" ...
+##  $ PZA00058.5    : chr  "?/?" "?/?" "?/?" "?/?" ...
+##  $ PZA00058.6    : chr  "T/T" "?/?" "T/T" "T/T" ...
+##  $ PZA00060.2    : chr  "?/?" "?/?" "C/C" "C/C" ...
+##  $ PZA00061.1    : chr  "?/?" "?/?" "?/?" "?/?" ...
+##  $ PZA00065.2    : chr  "C/C" "C/C" "C/C" "C/C" ...
+##  $ PZA00069.4    : chr  "C/C" "C/C" "C/C" "C/C" ...
+##  $ PZA00070.5    : chr  "C/C" "C/C" "C/C" "C/C" ...
+##  $ PZA00078.2    : chr  "C/C" "C/C" "C/C" "C/C" ...
+##  $ PZA00079.1    : chr  "C/C" "?/?" "C/C" "C/C" ...
+##  $ PZA00081.17   : chr  "?/?" "T/T" "T/T" "T/T" ...
+##  $ PZA00084.2    : chr  "C/C" "C/C" "C/C" "C/C" ...
+##  $ PZA00084.3    : chr  "T/T" "T/T" "T/T" "T/T" ...
+##  $ PZA00086.8    : chr  "?/?" "?/?" "?/?" "?/?" ...
+##  $ PZA00088.3    : chr  "G/G" "G/G" "G/G" "G/G" ...
+##  $ PZA00090.2    : chr  "A/A" "A/A" "?/?" "?/?" ...
+##  $ PZA00092.1    : chr  "?/?" "?/?" "T/T" "?/?" ...
+##  $ PZA00092.5    : chr  "?/?" "C/C" "C/C" "?/?" ...
+##  $ PZA00093.2    : chr  "?/?" "?/?" "?/?" "?/?" ...
+##  $ PZA00096.26   : chr  "T/T" "T/T" "T/T" "T/T" ...
+##  $ PZA00097.13   : chr  "G/G" "G/G" "G/G" "G/G" ...
+##  $ PZA00098.14   : chr  "?/?" "?/?" "C/C" "?/?" ...
+##  $ PZA00100.10   : chr  "?/?" "?/?" "?/?" "?/?" ...
+##  $ PZA00100.12   : chr  "T/T" "?/?" "T/T" "T/T" ...
+##  $ PZA00100.14   : chr  "?/?" "A/A" "A/A" "A/A" ...
+##  $ PZA00100.9    : chr  "C/C" "C/C" "C/C" "?/?" ...
+##  $ PZA00103.20   : chr  "A/A" "A/A" "A/A" "A/A" ...
+##  $ PZA00106.9    : chr  "G/G" "G/G" "G/G" "G/G" ...
+##  $ PZA00107.18   : chr  "?/?" "?/?" "?/?" "?/?" ...
+##  $ PZA00108.12   : chr  "?/?" "C/C" "C/C" "C/C" ...
+##  $ PZA00108.14   : chr  "G/G" "G/G" "G/G" "G/G" ...
+##  $ PZA00108.15   : chr  "A/A" "A/A" "A/A" "A/A" ...
+##  $ PZA00109.3    : chr  "A/A" "A/A" "?/?" "?/?" ...
+##  $ PZA00109.5    : chr  "A/A" "?/?" "A/A" "?/?" ...
+##  $ PZA00111.2    : chr  "T/T" "T/T" "T/T" "T/T" ...
+##  $ PZA00111.4    : chr  "C/C" "?/?" "C/C" "C/C" ...
+##  $ PZA00111.5    : chr  "?/?" "?/?" "A/A" "A/A" ...
+##  $ PZA00111.6    : chr  "C/C" "C/C" "C/C" "C/C" ...
+##  $ PZA00111.8    : chr  "T/T" "T/T" "T/T" "T/T" ...
+##  $ PZA00114.3    : chr  "C/C" "C/C" "C/C" "C/C" ...
+##  $ PZA00116.2    : chr  "C/T" "C/T" "C/T" "C/T" ...
+##  $ PZA00119.4    : chr  "G/G" "G/G" "G/G" "G/G" ...
+##  $ PZA00120.4    : chr  "G/G" "G/G" "G/G" "G/G" ...
+##  $ PZA00123.1    : chr  "?/?" "?/?" "?/?" "?/?" ...
+##  $ PZA00125.2    : chr  "?/?" "?/?" "?/?" "?/?" ...
+##  $ PZA00131.14   : chr  "C/C" "C/C" "C/C" "C/C" ...
+##  $ PZA00132.17   : chr  "T/T" "T/T" "T/T" "T/T" ...
+##   [list output truncated]
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{snp.df }\OtherTok{\textless{}{-}} \FunctionTok{read.table}\NormalTok{(}\StringTok{"snp\_position.txt"}\NormalTok{, }\AttributeTok{sep =} \StringTok{"}\SpecialCharTok{\textbackslash{}t}\StringTok{"}\NormalTok{, }\AttributeTok{header =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{nrow}\NormalTok{(snp.df)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 983
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ncol}\NormalTok{(snp.df)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 15
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str}\NormalTok{(snp.df)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'data.frame':    983 obs. of  15 variables:
+##  $ SNP_ID              : chr  "abph1.20" "abph1.22" "ae1.3" "ae1.4" ...
+##  $ cdv_marker_id       : int  5976 5978 6605 6606 6607 5982 3463 3466 5983 5985 ...
+##  $ Chromosome          : chr  "2" "2" "5" "5" ...
+##  $ Position            : chr  "27403404" "27403892" "167889790" "167889682" ...
+##  $ alt_pos             : chr  "" "" "" "" ...
+##  $ mult_positions      : chr  "" "" "" "" ...
+##  $ amplicon            : chr  "abph1" "abph1" "ae1" "ae1" ...
+##  $ cdv_map_feature.name: chr  "AB042260" "AB042260" "ae1" "ae1" ...
+##  $ gene                : chr  "abph1" "abph1" "ae1" "ae1" ...
+##  $ candidate.random    : chr  "candidate" "candidate" "candidate" "candidate" ...
+##  $ Genaissance_daa_id  : int  8393 8394 8395 8396 8397 8398 8399 8400 8401 8402 ...
+##  $ Sequenom_daa_id     : int  10474 10475 10477 10478 10479 10481 10482 10483 10486 10487 ...
+##  $ count_amplicons     : int  1 0 1 0 0 1 1 0 1 0 ...
+##  $ count_cmf           : int  1 0 1 0 0 1 0 0 1 0 ...
+##  $ count_gene          : int  1 0 1 0 0 1 1 0 1 0 ...
+\end{verbatim}
+
+From inspecting the dataframes, we can describe their structure as
+follows:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  genotype.df = the dataframe containing the data from
+  \texttt{fang\_et\_al\_genotypes.txt}. It has 2782 rows (observations)
+  and 986 columns (variables). Some of its column names are
+  `Sample\_ID', `Group', etc
+\item
+  snp.df = the dataframe containing the data from
+  \texttt{snp\_positions.txt}. It has 983 rows (observations) and 15
+  columns (variables). Some of its column names are `SNP\_ID',
+  `Chromosome',`Position', `alt\_pos',`mult\_positions', etc
+\end{enumerate}
+
+\subsubsection{\texorpdfstring{\emph{Data
+Processing}}{Data Processing}}\label{data-processing}
+
+Since we do not need all the data present in the dataframe
+\texttt{snp.df}, we select only the relevant column data (SNP\_ID,
+Chromosome and Position) and store it into a new dataframe
+\texttt{snp\_clean.df}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Selecting the relevant SNP data only}
+\NormalTok{snp\_clean.df }\OtherTok{\textless{}{-}}\NormalTok{ snp.df[}\FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}SNP\_ID\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}Chromosome\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}Position\textquotesingle{}}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+For ease of use later, we separate out the maize and teosinte data into
+separate dataframes. Further, we transpose the dataframes and remove the
+unnecessary rows to facilitate merging of the snp data with the genotype
+data for data analysis.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Creating the maize data}
+\NormalTok{maize\_data.df }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(genotype.df, }\StringTok{\textasciigrave{}}\AttributeTok{Group}\StringTok{\textasciigrave{}} \SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}ZMMIL\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}ZMMLR\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}ZMMMR\textquotesingle{}}\NormalTok{))}
+\NormalTok{maize\_transpose.df }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{t}\NormalTok{(maize\_data.df))}
+\NormalTok{maize\_clean.df }\OtherTok{\textless{}{-}}\NormalTok{ maize\_transpose.df[}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{),]}
+\FunctionTok{rownames}\NormalTok{(maize\_clean.df) }\OtherTok{\textless{}{-}} \ConstantTok{NULL}
+
+\CommentTok{\#Creating the teosinte data}
+\NormalTok{teosinte\_data.df }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(genotype.df, }\StringTok{\textasciigrave{}}\AttributeTok{Group}\StringTok{\textasciigrave{}} \SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}ZMPBA\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}ZMPIL\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}ZMPJA\textquotesingle{}}\NormalTok{))}
+\NormalTok{teosinte\_transpose.df }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{t}\NormalTok{(teosinte\_data.df))}
+\NormalTok{teosinte\_clean.df }\OtherTok{\textless{}{-}}\NormalTok{ teosinte\_transpose.df[}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{), ]}
+\FunctionTok{rownames}\NormalTok{(teosinte\_clean.df) }\OtherTok{\textless{}{-}} \ConstantTok{NULL}
+\end{Highlighting}
+\end{Shaded}
+
+After cleaning the individual data sets, I joined the genotype data set
+with the snp data to create a master data set, which I will use for
+further analysis. \texttt{maize.df} contains the master data set for
+maize after joining, while \texttt{teosinte.df} is the master data set
+for the teosinte data after joining.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Creating the master datasets}
+\NormalTok{maize.df }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(snp\_clean.df,maize\_clean.df)}
+\NormalTok{teosinte.df }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(snp\_clean.df,teosinte\_clean.df)}
+\end{Highlighting}
+\end{Shaded}
+
+Now we will try to generate the files requested in the assignment. We
+will deal with the Maize and Teosinte data separately for ease of data
+handling. Only con is that we will generate a lot of intermediate and
+final objects.
+
+\paragraph{Maize data}\label{maize-data}
+
+First, we deal with the Maize data. In file set 1, we are suppsed to
+generate 10 files, each corresponding to a chromosome, in which the
+positions are sorted in increasing order and the missing value is
+encoded by the `?' symbol. Here, we define a function
+\texttt{write\_maize\_data} that filters out the data for each
+chromosome and then saves the data into a new file with a unique name.
+We then use the \texttt{lapply} function to repeat this function for all
+the chromosomes.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Maize data}
+
+\CommentTok{\#Set 1:}
+
+\CommentTok{\#SNPs ordered in increasing position with missing values encoded by \textquotesingle{}?\textquotesingle{} symbol}
+\NormalTok{maize\_sorted.df }\OtherTok{\textless{}{-}}\NormalTok{ maize.df }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{ (}\FunctionTok{as.numeric}\NormalTok{(Chromosome),}\FunctionTok{as.numeric}\NormalTok{(Position))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: There was 1 warning in `arrange()`.
+## i In argument: `..1 = as.numeric(Chromosome)`.
+## Caused by warning:
+## ! NAs introduced by coercion
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: There was 1 warning in `arrange()`.
+## i In argument: `..2 = as.numeric(Position)`.
+## Caused by warning:
+## ! NAs introduced by coercion
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Generating the file set:}
+\CommentTok{\#Step 1: Selecting each unique chromosome}
+\NormalTok{maize\_chrom.l }\OtherTok{\textless{}{-}} \FunctionTok{unique}\NormalTok{(maize\_sorted.df}\SpecialCharTok{$}\NormalTok{Chromosome)}
+
+\CommentTok{\#Step 2: Defining a function to write a dataframe for the selected chromosome}
+\NormalTok{write\_maize\_data }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(chrom\_num)}
+\NormalTok{  \{}
+\NormalTok{  maize\_chrom\_data.df }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(maize\_sorted.df, Chromosome }\SpecialCharTok{==}\NormalTok{ chrom\_num)}
+\NormalTok{  file\_name }\OtherTok{\textless{}{-}} \FunctionTok{paste0}\NormalTok{(}\StringTok{\textquotesingle{}maize\_chr\_\textquotesingle{}}\NormalTok{,chrom\_num,}\StringTok{\textquotesingle{}.txt\textquotesingle{}}\NormalTok{)}
+  \FunctionTok{write.table}\NormalTok{ (maize\_chrom\_data.df, }\AttributeTok{file =}\NormalTok{ file\_name, }\AttributeTok{quote =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{sep =} \StringTok{\textquotesingle{}}\SpecialCharTok{\textbackslash{}t}\StringTok{\textquotesingle{}}\NormalTok{, }\AttributeTok{row.names =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{col.names =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{\}}
+
+\CommentTok{\#Step 3: Applying Step 2 to all chromosomes}
+\FunctionTok{lapply}\NormalTok{ (maize\_chrom.l, write\_maize\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [[1]]
+## NULL
+## 
+## [[2]]
+## NULL
+## 
+## [[3]]
+## NULL
+## 
+## [[4]]
+## NULL
+## 
+## [[5]]
+## NULL
+## 
+## [[6]]
+## NULL
+## 
+## [[7]]
+## NULL
+## 
+## [[8]]
+## NULL
+## 
+## [[9]]
+## NULL
+## 
+## [[10]]
+## NULL
+## 
+## [[11]]
+## NULL
+## 
+## [[12]]
+## NULL
+\end{verbatim}
+
+For file set 2, we need to replace the encoding of the missing data by
+the `-' symbol and sort the position in descending order, for each
+chromosome. We need to generate 10 files, corresponding to each
+chromosome. Similar to before, we define a
+\texttt{write\_maize\_rev\_data} function to help facilitate this. The
+generated files are saved with their unique names.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Set 2}
+
+\CommentTok{\#SNPs ordered in decreasing position with missing values encoded by \textquotesingle{}{-}\textquotesingle{} symbol}
+
+\NormalTok{maize\_rev\_sorted.df }\OtherTok{\textless{}{-}}\NormalTok{ maize.df }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{ (}\FunctionTok{as.numeric}\NormalTok{(Chromosome),}\FunctionTok{desc}\NormalTok{(}\FunctionTok{as.numeric}\NormalTok{(Position)))   }\CommentTok{\#sorting in decreasing order}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: There was 1 warning in `arrange()`.
+## i In argument: `..1 = as.numeric(Chromosome)`.
+## Caused by warning:
+## ! NAs introduced by coercion
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: There was 1 warning in `arrange()`.
+## i In argument: `..2 = as.numeric(Position)`.
+## Caused by warning:
+## ! NAs introduced by coercion
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{maize\_rev\_sorted.df[maize\_rev\_sorted.df }\SpecialCharTok{==} \StringTok{\textquotesingle{}?/?\textquotesingle{}}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{\textquotesingle{}{-}/{-}\textquotesingle{}}    \CommentTok{\#replacing the \textquotesingle{}?\textquotesingle{} with \textquotesingle{}{-}\textquotesingle{}}
+
+\CommentTok{\#Generating the file set:}
+\CommentTok{\#Step 1: We are reusing the list of chromosomes generated in first set since the chromosome number did not change  }
+\NormalTok{maize\_chrom.l }\OtherTok{\textless{}{-}} \FunctionTok{unique}\NormalTok{(maize\_sorted.df}\SpecialCharTok{$}\NormalTok{Chromosome)}
+
+\CommentTok{\#Step 2: Defining a function to write a dataframe for the selected chromosome}
+
+\NormalTok{write\_maize\_rev\_data }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(chrom\_num)}
+\NormalTok{  \{}
+\NormalTok{  maize\_chrom\_rev\_data.df }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(maize\_rev\_sorted.df, Chromosome }\SpecialCharTok{==}\NormalTok{ chrom\_num)}
+\NormalTok{  file\_name }\OtherTok{\textless{}{-}} \FunctionTok{paste0}\NormalTok{(}\StringTok{\textquotesingle{}maize\_rev\_chr\_\textquotesingle{}}\NormalTok{,chrom\_num,}\StringTok{\textquotesingle{}.txt\textquotesingle{}}\NormalTok{)}
+  \FunctionTok{write.table}\NormalTok{ (maize\_chrom\_rev\_data.df, }\AttributeTok{file =}\NormalTok{ file\_name, }\AttributeTok{quote =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{sep =} \StringTok{\textquotesingle{}}\SpecialCharTok{\textbackslash{}t}\StringTok{\textquotesingle{}}\NormalTok{, }\AttributeTok{row.names =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{col.names =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{\}}
+
+\CommentTok{\#Step 3: Applying Step 2 to all chromosomes}
+\FunctionTok{lapply}\NormalTok{ (maize\_chrom.l, write\_maize\_rev\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [[1]]
+## NULL
+## 
+## [[2]]
+## NULL
+## 
+## [[3]]
+## NULL
+## 
+## [[4]]
+## NULL
+## 
+## [[5]]
+## NULL
+## 
+## [[6]]
+## NULL
+## 
+## [[7]]
+## NULL
+## 
+## [[8]]
+## NULL
+## 
+## [[9]]
+## NULL
+## 
+## [[10]]
+## NULL
+## 
+## [[11]]
+## NULL
+## 
+## [[12]]
+## NULL
+\end{verbatim}
+
+\paragraph{Teosinte data}\label{teosinte-data}
+
+After the maize data, we deal with the Teosinte data. Just like above,
+in file set 1, we are suppsed to generate 10 files, each corresponding
+to a chromosome, in which the positions are sorted in increasing order
+and the missing value is encoded by the `?' symbol. Correspondinly, we
+define a function \texttt{write\_teo\_data} that filters out the data
+for each chromosome and then saves the data into a new file with a
+unique name. We then use the \texttt{lapply} function to repeat this
+function for all the chromosomes.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Teosinte data}
+
+\CommentTok{\#Set 1:}
+
+\CommentTok{\#SNPs ordered in increasing position with missing values encoded by \textquotesingle{}?\textquotesingle{} symbol}
+\NormalTok{teosinte\_sorted.df }\OtherTok{\textless{}{-}}\NormalTok{ teosinte.df }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{ (}\FunctionTok{as.numeric}\NormalTok{(Chromosome),}\FunctionTok{as.numeric}\NormalTok{(Position))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: There was 1 warning in `arrange()`.
+## i In argument: `..1 = as.numeric(Chromosome)`.
+## Caused by warning:
+## ! NAs introduced by coercion
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: There was 1 warning in `arrange()`.
+## i In argument: `..2 = as.numeric(Position)`.
+## Caused by warning:
+## ! NAs introduced by coercion
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Generating the file set:}
+\CommentTok{\#Step 1: Selecting each unique chromosome}
+\NormalTok{teo\_chrom.l }\OtherTok{\textless{}{-}} \FunctionTok{unique}\NormalTok{(teosinte\_sorted.df}\SpecialCharTok{$}\NormalTok{Chromosome)}
+
+
+\CommentTok{\#Step 2: Defining a function to write a dataframe for the selected chromosome}
+\NormalTok{write\_teo\_data }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(chrom\_num)}
+\NormalTok{  \{}
+\NormalTok{  teosinte\_chrom\_data.df }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(teosinte\_sorted.df, Chromosome }\SpecialCharTok{==}\NormalTok{ chrom\_num)}
+\NormalTok{  file\_name }\OtherTok{\textless{}{-}} \FunctionTok{paste0}\NormalTok{(}\StringTok{\textquotesingle{}teo\_chr\_\textquotesingle{}}\NormalTok{,chrom\_num,}\StringTok{\textquotesingle{}.txt\textquotesingle{}}\NormalTok{)}
+  \FunctionTok{write.table}\NormalTok{ (teosinte\_chrom\_data.df, }\AttributeTok{file =}\NormalTok{ file\_name, }\AttributeTok{quote =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{sep =} \StringTok{\textquotesingle{}}\SpecialCharTok{\textbackslash{}t}\StringTok{\textquotesingle{}}\NormalTok{, }\AttributeTok{row.names =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{col.names =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{\}}
+
+\CommentTok{\#Step 3: Applying Step 2 to all chromosomes}
+\FunctionTok{lapply}\NormalTok{ (teo\_chrom.l, write\_teo\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [[1]]
+## NULL
+## 
+## [[2]]
+## NULL
+## 
+## [[3]]
+## NULL
+## 
+## [[4]]
+## NULL
+## 
+## [[5]]
+## NULL
+## 
+## [[6]]
+## NULL
+## 
+## [[7]]
+## NULL
+## 
+## [[8]]
+## NULL
+## 
+## [[9]]
+## NULL
+## 
+## [[10]]
+## NULL
+## 
+## [[11]]
+## NULL
+## 
+## [[12]]
+## NULL
+\end{verbatim}
+
+Again, for file set 2, we need to replace the encoding of the missing
+data by the `-' symbol and sort the position in descending order, for
+each chromosome. We need to generate 10 files, corresponding to each
+chromosome. Similar to before, we define a
+\texttt{write\_teo\_rev\_data} function to help facilitate this. The
+generated files are saved with their unique names.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Set 2}
+
+\CommentTok{\#SNPs ordered in decreasing position with missing values encoded by \textquotesingle{}{-}\textquotesingle{} symbol}
+
+\NormalTok{teo\_rev\_sorted.df }\OtherTok{\textless{}{-}}\NormalTok{ teosinte.df }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{ (}\FunctionTok{as.numeric}\NormalTok{(Chromosome),}\FunctionTok{desc}\NormalTok{(}\FunctionTok{as.numeric}\NormalTok{(Position)))   }\CommentTok{\#sorting in decreasing order}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: There was 1 warning in `arrange()`.
+## i In argument: `..1 = as.numeric(Chromosome)`.
+## Caused by warning:
+## ! NAs introduced by coercion
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: There was 1 warning in `arrange()`.
+## i In argument: `..2 = as.numeric(Position)`.
+## Caused by warning:
+## ! NAs introduced by coercion
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{teo\_rev\_sorted.df[teo\_rev\_sorted.df }\SpecialCharTok{==} \StringTok{\textquotesingle{}?/?\textquotesingle{}}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{\textquotesingle{}{-}/{-}\textquotesingle{}}    \CommentTok{\#replacing the \textquotesingle{}?\textquotesingle{} with \textquotesingle{}{-}\textquotesingle{}}
+
+\CommentTok{\#Generating the file set:}
+\CommentTok{\#Step 1: We are reusing the list of chromosomes generated in first set since the chromosome number did not change  }
+\NormalTok{teo\_chrom.l }\OtherTok{\textless{}{-}} \FunctionTok{unique}\NormalTok{(teosinte\_sorted.df}\SpecialCharTok{$}\NormalTok{Chromosome)}
+
+\CommentTok{\#Step 2: Defining a function to write a dataframe for the selected chromosome}
+
+\NormalTok{write\_teo\_rev\_data }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(chrom\_num)}
+\NormalTok{  \{}
+\NormalTok{  teo\_chrom\_rev\_data.df }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(teo\_rev\_sorted.df, Chromosome }\SpecialCharTok{==}\NormalTok{ chrom\_num)}
+\NormalTok{  file\_name }\OtherTok{\textless{}{-}} \FunctionTok{paste0}\NormalTok{(}\StringTok{\textquotesingle{}teo\_rev\_chr\_\textquotesingle{}}\NormalTok{,chrom\_num,}\StringTok{\textquotesingle{}\_rev.txt\textquotesingle{}}\NormalTok{)}
+  \FunctionTok{write.table}\NormalTok{ (teo\_chrom\_rev\_data.df, }\AttributeTok{file =}\NormalTok{ file\_name, }\AttributeTok{quote =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{sep =} \StringTok{\textquotesingle{}}\SpecialCharTok{\textbackslash{}t}\StringTok{\textquotesingle{}}\NormalTok{, }\AttributeTok{row.names =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{col.names =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{\}}
+
+\CommentTok{\#Step 3: Applying Step 2 to all chromosomes}
+\FunctionTok{lapply}\NormalTok{ (teo\_chrom.l, write\_teo\_rev\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [[1]]
+## NULL
+## 
+## [[2]]
+## NULL
+## 
+## [[3]]
+## NULL
+## 
+## [[4]]
+## NULL
+## 
+## [[5]]
+## NULL
+## 
+## [[6]]
+## NULL
+## 
+## [[7]]
+## NULL
+## 
+## [[8]]
+## NULL
+## 
+## [[9]]
+## NULL
+## 
+## [[10]]
+## NULL
+## 
+## [[11]]
+## NULL
+## 
+## [[12]]
+## NULL
+\end{verbatim}
+
+\subsection{Part II}\label{part-ii}
+
+\subsubsection{\texorpdfstring{\emph{Data
+Visualization}}{Data Visualization}}\label{data-visualization}
+
+For data visualization, we first call the necessary libraries:
+\texttt{ggplot} and \texttt{viridis}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Calling the libraries needed}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(viridis)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: viridisLite
+\end{verbatim}
+
+This data visualisation part will consist of three parts: 1. SNPs per
+Chromosome 2. Missing data and amount of heterozygosity 3. My own
+visualization.
+
+To help with the visualization, we will be using the
+\texttt{pivot\_longer()} function to reshape the data. For ease of data
+handling, I will continue to use the two individual data sets for maize
+and teosinte and NOT combine them into a master dataset.
+
+\subsubsection{SNPs per Chromosome}\label{snps-per-chromosome}
+
+\paragraph{Maize data}\label{maize-data-1}
+
+First, we manipulate and look into the Maize dataset. Plot 1 will show
+the distribution of SNPs along the different positions of each
+chromosome and will show that for all the chromosomes.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Maize Data}
+
+\CommentTok{\#Reshaping the data to help facilitate plotting analysis}
+
+\NormalTok{maize\_pivot.df }\OtherTok{\textless{}{-}} \FunctionTok{pivot\_longer}\NormalTok{(maize\_sorted.df, }\AttributeTok{cols =} \SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(SNP\_ID,Chromosome,Position), }\AttributeTok{names\_to =} \ConstantTok{NULL}\NormalTok{, }\AttributeTok{values\_to =} \StringTok{\textquotesingle{}Genotype\textquotesingle{}}\NormalTok{)}
+
+\CommentTok{\#Converting the Chromosome and Position to numeric values for easier plotting}
+\NormalTok{maize\_pivot.df}\SpecialCharTok{$}\NormalTok{Chromosome }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(maize\_pivot.df}\SpecialCharTok{$}\NormalTok{Chromosome)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: NAs introduced by coercion
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{maize\_pivot.df}\SpecialCharTok{$}\NormalTok{Position }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(maize\_pivot.df}\SpecialCharTok{$}\NormalTok{Position)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: NAs introduced by coercion
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Final Maize SNP data used for visualisation}
+\NormalTok{maize\_SNP.df }\OtherTok{\textless{}{-}}\NormalTok{ maize\_pivot.df }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{drop\_na}\NormalTok{()}
+
+
+\CommentTok{\#Plotting the distribution of SNPs on and across Chromosome}
+
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ maize\_SNP.df) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_density}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Position, }\AttributeTok{fill =} \FunctionTok{factor}\NormalTok{(Chromosome))) }\SpecialCharTok{+} 
+  \FunctionTok{facet\_wrap}\NormalTok{( }\SpecialCharTok{\textasciitilde{}} \FunctionTok{factor}\NormalTok{(Chromosome), }\AttributeTok{scales =} \StringTok{"free\_x"}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{scale\_fill\_discrete}\NormalTok{() }\SpecialCharTok{+} 
+  \FunctionTok{labs}\NormalTok{ (}\AttributeTok{title =} \StringTok{\textquotesingle{}Maize SNP distribution on each Chromosome\textquotesingle{}}\NormalTok{, }
+        \AttributeTok{x =} \StringTok{\textquotesingle{}Position on Chromsome\textquotesingle{}}\NormalTok{, }
+        \AttributeTok{y =} \StringTok{\textquotesingle{}Distribution density\textquotesingle{}}\NormalTok{, }
+        \AttributeTok{fill =} \StringTok{\textquotesingle{}Chromosome\textquotesingle{}}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{theme}\NormalTok{( }\AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{20}\NormalTok{),}
+         \AttributeTok{axis.title.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{16}\NormalTok{),}
+         \AttributeTok{axis.title.y =} \FunctionTok{element\_text}\NormalTok{ (}\AttributeTok{size =} \DecValTok{16}\NormalTok{)}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{R-Assignment_files/figure-latex/unnamed-chunk-11-1.pdf}
+
+Further we also summarized the number of SNPs in each chromosome and
+plotted them to get a better idea of what is happening.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Calculating and plotting the number of Maize SNP across chromosome}
+
+\NormalTok{maize\_result.df }\OtherTok{\textless{}{-}}\NormalTok{ maize\_SNP.df }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(Chromosome) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{SNP\_count =} \FunctionTok{n}\NormalTok{())}
+
+
+\FunctionTok{ggplot}\NormalTok{(maize\_result.df) }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Chromosome, }\AttributeTok{y =}\NormalTok{ SNP\_count,}\AttributeTok{fill =} \FunctionTok{factor}\NormalTok{( Chromosome)), }\AttributeTok{stat =} \StringTok{\textquotesingle{}identity\textquotesingle{}}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{scale\_fill\_discrete}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"SNP counts for Maize by Chromosome"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Chromosome number"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Count"}\NormalTok{,}
+       \AttributeTok{fill =} \StringTok{"Chromosome"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{R-Assignment_files/figure-latex/unnamed-chunk-12-1.pdf}
+
+\paragraph{Teosinte data}\label{teosinte-data-1}
+
+Next, we manipulate and look into the Teosinte dataset. Again, Plot 1
+will show the distribution of SNPs along the different positions of each
+chromosome and will show that for all the chromosomes.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Teosinte Data}
+
+\CommentTok{\#Reshaping the data to help facilitate plotting analysis}
+
+\NormalTok{teo\_pivot.df }\OtherTok{\textless{}{-}} \FunctionTok{pivot\_longer}\NormalTok{(teosinte\_sorted.df, }\AttributeTok{cols =} \SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(SNP\_ID,Chromosome,Position), }\AttributeTok{names\_to =} \ConstantTok{NULL}\NormalTok{, }\AttributeTok{values\_to =} \StringTok{\textquotesingle{}Genotype\textquotesingle{}}\NormalTok{)}
+
+\CommentTok{\#Converting the Chromosome and Position to numeric values for easier plotting}
+\NormalTok{teo\_pivot.df}\SpecialCharTok{$}\NormalTok{Chromosome }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(teo\_pivot.df}\SpecialCharTok{$}\NormalTok{Chromosome)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: NAs introduced by coercion
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{teo\_pivot.df}\SpecialCharTok{$}\NormalTok{Position }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(teo\_pivot.df}\SpecialCharTok{$}\NormalTok{Position)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: NAs introduced by coercion
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Final Teosinte SNP data used for visualisation}
+\NormalTok{teo\_SNP.df }\OtherTok{\textless{}{-}}\NormalTok{ teo\_pivot.df }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{drop\_na}\NormalTok{()}
+
+
+
+\CommentTok{\#Plotting the distribution of SNPs on and across Chromosome}
+
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ teo\_SNP.df) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_density}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Position, }\AttributeTok{fill =} \FunctionTok{factor}\NormalTok{(Chromosome))) }\SpecialCharTok{+} 
+  \FunctionTok{facet\_wrap}\NormalTok{( }\SpecialCharTok{\textasciitilde{}} \FunctionTok{factor}\NormalTok{(Chromosome), }\AttributeTok{scales =} \StringTok{"free\_x"}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{scale\_fill\_viridis\_d}\NormalTok{() }\SpecialCharTok{+} 
+  \FunctionTok{labs}\NormalTok{ (}\AttributeTok{title =} \StringTok{\textquotesingle{}Teosinte SNP distribution on each Chromosome\textquotesingle{}}\NormalTok{, }
+        \AttributeTok{x =} \StringTok{\textquotesingle{}Position on Chromsome\textquotesingle{}}\NormalTok{, }
+        \AttributeTok{y =} \StringTok{\textquotesingle{}Distribution density\textquotesingle{}}\NormalTok{, }
+        \AttributeTok{fill =} \StringTok{\textquotesingle{}Chromosome\textquotesingle{}}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{theme}\NormalTok{( }\AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{20}\NormalTok{),}
+         \AttributeTok{axis.title.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{16}\NormalTok{),}
+         \AttributeTok{axis.title.y =} \FunctionTok{element\_text}\NormalTok{ (}\AttributeTok{size =} \DecValTok{16}\NormalTok{)}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{R-Assignment_files/figure-latex/unnamed-chunk-13-1.pdf}
+
+Further we also summarized the number of SNPs in each chromosome and
+plotted them to get a better idea of what is happening.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Calculating and plotting the number of Maize SNP across chromosome}
+
+\NormalTok{teo\_result.df }\OtherTok{\textless{}{-}}\NormalTok{ teo\_SNP.df }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(Chromosome) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{SNP\_count =} \FunctionTok{n}\NormalTok{())}
+
+
+\FunctionTok{ggplot}\NormalTok{(teo\_result.df) }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Chromosome, }\AttributeTok{y =}\NormalTok{ SNP\_count,}\AttributeTok{fill =} \FunctionTok{factor}\NormalTok{( Chromosome)), }\AttributeTok{stat =} \StringTok{\textquotesingle{}identity\textquotesingle{}}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{scale\_fill\_viridis\_d}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"SNP counts for Teosinte by Chromosome"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Chromosome number"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Count"}\NormalTok{,}
+       \AttributeTok{fill =} \StringTok{"Chromosome"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{R-Assignment_files/figure-latex/unnamed-chunk-14-1.pdf}
+
+Next, we wanted to compare which among the two datasets: Maize and
+Teosinte had more number of SNP positions. First we calculated it.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Comparing number of SNP positions in maize and teosinte individuals}
+
+\NormalTok{maize\_total\_SNP }\OtherTok{=} \FunctionTok{sum}\NormalTok{(maize\_result.df}\SpecialCharTok{$}\NormalTok{SNP\_count)}
+\NormalTok{teo\_total\_SNP }\OtherTok{=} \FunctionTok{sum}\NormalTok{(teo\_result.df}\SpecialCharTok{$}\NormalTok{SNP\_count)}
+
+\ControlFlowTok{if}\NormalTok{ (maize\_total\_SNP }\SpecialCharTok{\textgreater{}}\NormalTok{ teo\_total\_SNP)\{}
+  \FunctionTok{print}\NormalTok{(}\StringTok{" Maize individuals has more SNP positions"}\NormalTok{)}
+\NormalTok{\}}\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (teo\_total\_SNP }\SpecialCharTok{\textgreater{}}\NormalTok{ maize\_total\_SNP)\{}
+  \FunctionTok{print}\NormalTok{ (}\StringTok{" Teosinte individuals has more SNP positions"}\NormalTok{)}
+\NormalTok{\}}\ControlFlowTok{else}\NormalTok{ \{}
+  \FunctionTok{print}\NormalTok{ (}\StringTok{" Maize and Teosinte individuals have same number of SNP positions"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] " Maize individuals has more SNP positions"
+\end{verbatim}
+
+Next we confirmed our conclusion from the calculation by visualising the
+two datasets and their corresponging SNP frequencies.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Plotting the SNP counts for visual confirmation}
+\NormalTok{combined\_data }\OtherTok{\textless{}{-}} \FunctionTok{rbind}\NormalTok{(}
+\NormalTok{  maize\_result.df }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Source =} \StringTok{"Maize\_SNP"}\NormalTok{),}
+\NormalTok{  teo\_result.df }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Source =} \StringTok{"Teosinte\_SNP"}\NormalTok{)}
+\NormalTok{)}
+
+\FunctionTok{ggplot}\NormalTok{ (}\AttributeTok{data =}\NormalTok{ combined\_data,}
+        \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Chromosome, }\AttributeTok{y =}\NormalTok{ SNP\_count, }\AttributeTok{fill=}\NormalTok{ Source)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat =} \StringTok{\textquotesingle{}identity\textquotesingle{}}\NormalTok{, }\AttributeTok{position =} \StringTok{\textquotesingle{}dodge\textquotesingle{}}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{ (}\AttributeTok{title =} \StringTok{"SNP counts by chromosome for Maize and Teosinte"}\NormalTok{,}
+        \AttributeTok{x =} \StringTok{"Chromosome number"}\NormalTok{,}
+        \AttributeTok{y =} \StringTok{"SNP counts"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_brewer}\NormalTok{(}\AttributeTok{palette =} \StringTok{"Set1"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{R-Assignment_files/figure-latex/unnamed-chunk-16-1.pdf}
+
+\subsubsection{Missing data and amount of
+heterozygosity}\label{missing-data-and-amount-of-heterozygosity}
+
+Next we are interested in investigating what proportions of the SNPs
+belong to different zygosity and also will look into the amount of
+missing data we have for each dataset.
+
+Like always, we first look into the Maize data and plot the proportion
+of zygosity.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Adding Zygosity to Maize SNP data}
+
+\NormalTok{maize\_SNP.df}\SpecialCharTok{$}\NormalTok{Zygosity }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{ (maize\_SNP.df}\SpecialCharTok{$}\NormalTok{Genotype }\SpecialCharTok{\%in\%}
+                                   \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}A/A\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}C/C\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}G/G\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}T/T\textquotesingle{}}\NormalTok{), }\StringTok{\textquotesingle{}Homozygous\textquotesingle{}}\NormalTok{,}
+                                 \FunctionTok{ifelse}\NormalTok{(maize\_SNP.df}\SpecialCharTok{$}\NormalTok{Genotype }\SpecialCharTok{==} \StringTok{\textquotesingle{}?/?\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Missing\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}Heterzygous\textquotesingle{}}\NormalTok{))}
+
+\CommentTok{\# Plotting proportion of Maize zygosity}
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ maize\_SNP.df) }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ SNP\_ID, }\AttributeTok{fill =}\NormalTok{ Zygosity), }\AttributeTok{position =} \StringTok{"fill"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Zygosity proportion of Maize samples"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Each line is a sample"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Proportion of zygosity"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{20}\NormalTok{),}
+        \AttributeTok{axis.text.x =} \FunctionTok{element\_blank}\NormalTok{(),}
+        \AttributeTok{axis.title.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{16}\NormalTok{),}
+        \AttributeTok{axis.title.y =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{16}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{R-Assignment_files/figure-latex/unnamed-chunk-17-1.pdf}
+
+Next, we look into the Teosinte data and plot the proportion of
+zygosity.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Adding Zygosity to Teosinte SNP data}
+
+\NormalTok{teo\_SNP.df}\SpecialCharTok{$}\NormalTok{Zygosity }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{ (teo\_SNP.df}\SpecialCharTok{$}\NormalTok{Genotype }\SpecialCharTok{\%in\%}
+                                   \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}A/A\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}C/C\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}G/G\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}T/T\textquotesingle{}}\NormalTok{), }\StringTok{\textquotesingle{}Homozygous\textquotesingle{}}\NormalTok{,}
+                                 \FunctionTok{ifelse}\NormalTok{(teo\_SNP.df}\SpecialCharTok{$}\NormalTok{Genotype }\SpecialCharTok{==} \StringTok{\textquotesingle{}?/?\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Missing\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}Heterzygous\textquotesingle{}}\NormalTok{))}
+
+\CommentTok{\# Plotting proportion of Teosinte zygosity}
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ teo\_SNP.df) }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ SNP\_ID, }\AttributeTok{fill =}\NormalTok{ Zygosity), }\AttributeTok{position =} \StringTok{"fill"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Zygosity proportion of Teosinte samples"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Each line is a sample"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Proportion of zygosity"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{20}\NormalTok{),}
+        \AttributeTok{axis.text.x =} \FunctionTok{element\_blank}\NormalTok{(),}
+        \AttributeTok{axis.title.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{16}\NormalTok{),}
+        \AttributeTok{axis.title.y =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{16}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_brewer}\NormalTok{(}\AttributeTok{palette =} \StringTok{"Set2"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{R-Assignment_files/figure-latex/unnamed-chunk-18-1.pdf}
+
+\subsubsection{My own visualization}\label{my-own-visualization}
+
+As part of my own visualization, I was interested to see what
+heterzygosities are more prevalent on each chromosome and across the
+different chromosomes in Maize. While, I have only visualized it for
+Maize, we can perform similar visualization for the Teosinte data. This
+was interesting and gave me insights into the different trends of
+heterozygosity in different chromosomes. If we were to know that a
+certain chromosome is related to a particular phenotype, we could
+further look into the trends of heterozygosity in that chromosome.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Want to visualize which SNP is most prevalent among the heterzygotes on and across the chromsomes in Maize}
+
+\NormalTok{maize\_heter.df }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(maize\_SNP.df, maize\_SNP.df}\SpecialCharTok{$}\NormalTok{Zygosity }\SpecialCharTok{==} \StringTok{\textquotesingle{}Heterzygous\textquotesingle{}}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(Chromosome,Genotype) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{SNP\_count =} \FunctionTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` has grouped output by 'Chromosome'. You can override using the
+## `.groups` argument.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ maize\_heter.df) }\SpecialCharTok{+}
+  \FunctionTok{geom\_col}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Genotype, }\AttributeTok{y =}\NormalTok{ SNP\_count, }\AttributeTok{fill =}\NormalTok{ Genotype)) }\SpecialCharTok{+}
+  \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\FunctionTok{factor}\NormalTok{(Chromosome)) }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_brewer}\NormalTok{(}\AttributeTok{palette =} \StringTok{"Set3"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Combinations of heterzygosity prevalent in Maize chromosome"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Genotype"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"SNP\_count"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_blank}\NormalTok{(),}
+        \AttributeTok{axis.title.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{16}\NormalTok{),}
+        \AttributeTok{axis.title.y =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{16}\NormalTok{),}
+        \AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{20}\NormalTok{)}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{R-Assignment_files/figure-latex/unnamed-chunk-19-1.pdf}
+
+\end{document}

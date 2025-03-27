@@ -2,7 +2,9 @@
 title: "BCB546_Assignment"
 author: "Shirin Parvin"
 date: "`r Sys.Date()`"
-output: html_document
+output:
+  html_document: default
+  pdf_document: default
 ---
 
 ## R Assignment_BCB546_Spring2025
@@ -18,6 +20,8 @@ For all the data manipulation necessary, we first call the`tidyverse` library.
 ```{r}
 #Calling the libraries needed
 library(tidyverse)
+library(ggplot2)
+library(viridis)
 ```
 Then, we read the data files into our system and inspect its content.
 
@@ -96,14 +100,15 @@ maize_sorted.df <- maize.df %>%
   arrange (as.numeric(Chromosome),as.numeric(Position))
 
 #Generating the file set:
-#Step 1: Selecting each unique chromosome
+#Step 1: Selecting each unique chromosome and a folder to store the generated files
 maize_chrom.l <- unique(maize_sorted.df$Chromosome)
+dir.create("maize_data")
 
 #Step 2: Defining a function to write a dataframe for the selected chromosome
 write_maize_data <- function(chrom_num)
   {
   maize_chrom_data.df <- filter(maize_sorted.df, Chromosome == chrom_num)
-  file_name <- paste0('maize_chr_',chrom_num,'.txt')
+  file_name <- file.path("maize_data", paste0('maize_chr_',chrom_num,'.txt'))
   write.table (maize_chrom_data.df, file = file_name, quote = FALSE, sep = '\t', row.names = FALSE, col.names = TRUE)
 }
 
@@ -127,13 +132,14 @@ maize_rev_sorted.df[maize_rev_sorted.df == '?/?'] <- '-/-'    #replacing the '?'
 #Generating the file set:
 #Step 1: We are reusing the list of chromosomes generated in first set since the chromosome number did not change  
 maize_chrom.l <- unique(maize_sorted.df$Chromosome)
+dir.create("maize_data")
 
 #Step 2: Defining a function to write a dataframe for the selected chromosome
 
 write_maize_rev_data <- function(chrom_num)
   {
   maize_chrom_rev_data.df <- filter(maize_rev_sorted.df, Chromosome == chrom_num)
-  file_name <- paste0('maize_rev_chr_',chrom_num,'.txt')
+  file_name <- file.path("maize_data", paste0('maize_rev_chr_',chrom_num,'.txt'))
   write.table (maize_chrom_rev_data.df, file = file_name, quote = FALSE, sep = '\t', row.names = FALSE, col.names = TRUE)
 }
 
@@ -161,15 +167,15 @@ teosinte_sorted.df <- teosinte.df %>%
   arrange (as.numeric(Chromosome),as.numeric(Position))
 
 #Generating the file set:
-#Step 1: Selecting each unique chromosome
+#Step 1: Selecting each unique chromosome and creating a folder to store the generated files
 teo_chrom.l <- unique(teosinte_sorted.df$Chromosome)
-
+dir.create("teosinte_data")
 
 #Step 2: Defining a function to write a dataframe for the selected chromosome
 write_teo_data <- function(chrom_num)
   {
   teosinte_chrom_data.df <- filter(teosinte_sorted.df, Chromosome == chrom_num)
-  file_name <- paste0('teo_chr_',chrom_num,'.txt')
+  file_name <- file.path("teosinte_data", paste0('teo_chr_',chrom_num,'.txt'))
   write.table (teosinte_chrom_data.df, file = file_name, quote = FALSE, sep = '\t', row.names = FALSE, col.names = TRUE)
 }
 
@@ -192,15 +198,16 @@ teo_rev_sorted.df <- teosinte.df %>%
 teo_rev_sorted.df[teo_rev_sorted.df == '?/?'] <- '-/-'    #replacing the '?' with '-'
 
 #Generating the file set:
-#Step 1: We are reusing the list of chromosomes generated in first set since the chromosome number did not change  
+#Step 1: We are reusing the list of chromosomes generated and the storage folder in first set since the chromosome number did not change  
 teo_chrom.l <- unique(teosinte_sorted.df$Chromosome)
+dir.create("teosinte_data")
 
 #Step 2: Defining a function to write a dataframe for the selected chromosome
 
 write_teo_rev_data <- function(chrom_num)
   {
   teo_chrom_rev_data.df <- filter(teo_rev_sorted.df, Chromosome == chrom_num)
-  file_name <- paste0('teo_rev_chr_',chrom_num,'_rev.txt')
+  file_name <- file.path("teosinte_data",paste0('teo_rev_chr_',chrom_num,'_rev.txt'))
   write.table (teo_chrom_rev_data.df, file = file_name, quote = FALSE, sep = '\t', row.names = FALSE, col.names = TRUE)
 }
 
@@ -220,11 +227,6 @@ lapply (teo_chrom.l, write_teo_rev_data)
 
 For data visualization, we first call the necessary libraries: `ggplot` and `viridis`.
 
-```{r}
-#Calling the libraries needed
-library(ggplot2)
-library(viridis)
-```
 This data visualisation part will consist of three parts:
 1. SNPs per Chromosome
 2. Missing data and amount of heterozygosity
@@ -445,7 +447,7 @@ As part of my own visualization, I was interested to see what heterzygosities ar
 
 maize_heter.df <- filter(maize_SNP.df, maize_SNP.df$Zygosity == 'Heterzygous') %>%
   group_by(Chromosome,Genotype) %>%
-  summarise(SNP_count = n())
+  summarise(SNP_count = n(), .groups = "drop")
 
 ggplot(data = maize_heter.df) +
   geom_col(mapping = aes(x = Genotype, y = SNP_count, fill = Genotype)) +
